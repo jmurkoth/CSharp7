@@ -13,11 +13,17 @@ namespace Csharp7
             IsDemo();
             CaseStatementDemo();
             DeconstructDemo();
+            DigitSeparatorDemo();
+            BinaryLiteralDemo();
             Console.ReadLine();
         }
       
+        /// <summary>
+        /// Method demonstrating Tuples
+        /// </summary>
         static void TuplesDemo()
         {
+            Console.WriteLine("****TUPLES DEMO*****");
             var m = TupleTesting();
             Console.WriteLine($"First Name : {m.firstName} Middle :{ m.middle}, Last:{m.lastName}");
         }
@@ -25,6 +31,10 @@ namespace Csharp7
         {
             return (firstName: "John", middle: "C", lastName: "Doe");
         }
+
+        /// <summary>
+        /// Method demonstrating Out variables
+        /// </summary>
         static void OutVariables()
         {
             var inputValue = "12121";
@@ -40,6 +50,9 @@ namespace Csharp7
             //Console.WriteLine($"Circle area is { area}");
         }
 
+        /// <summary>
+        /// Method demonstrating pattern matching with is
+        /// </summary>
         static void IsDemo()
         {
             Console.WriteLine("****PATTERN MATCHING IS STATEMENT*****");
@@ -52,6 +65,9 @@ namespace Csharp7
             }
         }
 
+        /// <summary>
+        /// Method demonstrating pattern matching in switch statement
+        /// </summary>
         static void CaseStatementDemo()
         {
 
@@ -63,7 +79,7 @@ namespace Csharp7
                 new Rectangle {Length=10,Height=10 },
                 null
             };
-            Console.WriteLine("****CASE STATEMENT*****");
+            Console.WriteLine("****SWITCH STATEMENT PATTERN MATCHING*****");
             // case statement on type
             foreach (Shape item in shapes)
             {
@@ -95,7 +111,9 @@ namespace Csharp7
                 }
             }
         }
-
+        /// <summary>
+        /// Method demonstrating the deconstruct functionality
+        /// </summary>
         static void DeconstructDemo()
         {
             Console.WriteLine("****DECONSTRUCTION*****");
@@ -113,7 +131,22 @@ namespace Csharp7
 
         }
 
-      
+              
+        static  void DigitSeparatorDemo()
+        {
+            Console.WriteLine("****DIGIT SEPARATORS*****");
+            // We can use _ as a digit separator
+            int myval = 123_3_4_343;
+            Console.WriteLine(myval);
+        }
+        static void BinaryLiteralDemo()
+        {
+            Console.WriteLine("****BINARY LITERAL*****");
+            // Binary literal with digit separator
+            var b = 0b10_01_1100_010_00;
+            //should write out 5000;
+            Console.WriteLine(b);
+        }
     }
 
  
