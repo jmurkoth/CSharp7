@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Csharp7
 {
+    /// <summary>
+    /// Class used to demonstrate the functionality
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
