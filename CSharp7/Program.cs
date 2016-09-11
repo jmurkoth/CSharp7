@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Csharp7
 {
@@ -19,6 +20,7 @@ namespace Csharp7
             DigitSeparatorDemo();
             BinaryLiteralDemo();
             ReturnRef();
+            LocalFunctions();
             Console.ReadLine();
         }
       
@@ -162,6 +164,22 @@ namespace Csharp7
             int p1 = Find(9, array);
             p1 = 100;
             Console.WriteLine(array[4]); // still prints 9
+        }
+
+        static void LocalFunctions()
+        {
+            Console.WriteLine("****LOCAL FUNCTIONS*****");
+            int[] num = new int[] { 1, 2, 3, 4, 6, 7, 7, 8, 8 };
+            
+            (int sum, int count) Calculate(int[] numbers)
+            {
+                int s = 0;
+                numbers.ToList().ForEach(c => s += c);
+                return (sum: s, count: numbers.Length);
+            }
+
+            var (s1, c1) = Calculate(num);
+            Console.WriteLine($"sum :{s1} count :{c1}");
         }
         public static  int Find(int number, int[] numbers)
         {

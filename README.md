@@ -8,6 +8,7 @@ Sample project to demonstrate some of the new language features in C#7. This Pro
 * Digit Separator
 * Binary Literal
 * Return as reference
+* Local Methods
 
 See this [blog post](https://blogs.msdn.microsoft.com/dotnet/2016/08/24/whats-new-in-csharp-7-0/) for reference
 
