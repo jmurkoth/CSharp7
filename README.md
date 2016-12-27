@@ -9,9 +9,15 @@ Sample project to demonstrate some of the new language features in C#7. This Pro
 * Binary Literal
 * Return as reference
 * Local Methods
+* Throw Expressions
 
 See this [blog post](https://blogs.msdn.microsoft.com/dotnet/2016/08/24/whats-new-in-csharp-7-0/) for reference
+## Change log
+### 12-27-2016
+Enhancements:
+* Updated to use VS 2017 RC1
+* Included the features like throw expressions
 
 ## Prerequisites
-1. [Visual Studio 15 Preview 4](https://www.visualstudio.com/en-us/downloads/visual-studio-next-downloads-vs.aspx)
+1. [Visual Studio 2017 RC1 ](https://www.visualstudio.com/vs/visual-studio-2017-rc/)
 
