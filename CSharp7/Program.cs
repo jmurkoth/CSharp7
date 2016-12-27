@@ -21,6 +21,7 @@ namespace Csharp7
             BinaryLiteralDemo();
             ReturnRef();
             LocalFunctions();
+            ThrowExpression();
             Console.ReadLine();
         }
       
@@ -45,15 +46,25 @@ namespace Csharp7
         {
             var inputValue = "12121";
             Console.WriteLine("****OUT VARIABLES*****");
-            //Currently this works because value is within the scope of the if statement
+            // Below line will not compile
+           // Console.WriteLine($"{value} is a valid integer");
             if (int.TryParse(inputValue, out int value))
             {
                 Console.WriteLine($"{value} is a valid integer");
             }
+            // value available here - scope is now beyond the if
+            Console.WriteLine($"{value} is a valid integer");
             var circ = new Circle { Radius = 100 };
-            // Below  does not work in Preview 4 but will work in future per the C# team
-            //GetArea(circ, out double area);
-            //Console.WriteLine($"Circle area is { area}");
+        
+            GetArea(circ, out double area);
+            Console.WriteLine($"Circle area using out variables is { area}");
+            circ.AreaPick(out double area2);
+            Console.WriteLine($"Circle Area #2 using out variables {area2}");
+        }
+
+        private static void GetArea(Circle circ, out double area)
+        {
+            area = circ.CalculateArea();
         }
 
         /// <summary>
@@ -69,6 +80,7 @@ namespace Csharp7
             {
                 Console.WriteLine($"{i:#,###}");
             }
+            Console.WriteLine($"{i:#,###}");
         }
 
         /// <summary>
@@ -166,20 +178,46 @@ namespace Csharp7
             Console.WriteLine(array[4]); // still prints 9
         }
 
+        static void ThrowExpression()
+        {
+            Console.WriteLine("****THROW EXPRESSION*****");
+            try
+            {
+                Bogus boguscls = new Bogus();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            try
+            {
+                Bogus boguscls = new Bogus(25);
+                boguscls.CalculateArea();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+        }
         static void LocalFunctions()
         {
             Console.WriteLine("****LOCAL FUNCTIONS*****");
             int[] num = new int[] { 1, 2, 3, 4, 6, 7, 7, 8, 8 };
-            
+            // can be called before declaration
+            var (s1, c1) = Calculate(num);
+            Console.WriteLine($"sum :{s1} count :{c1}");
             (int sum, int count) Calculate(int[] numbers)
             {
                 int s = 0;
                 numbers.ToList().ForEach(c => s += c);
                 return (sum: s, count: numbers.Length);
             }
+            // can be called after declaration
+            var (s2, c2) = Calculate(num);
+            Console.WriteLine($"sum :{s2} count :{c2}");
 
-            var (s1, c1) = Calculate(num);
-            Console.WriteLine($"sum :{s1} count :{c1}");
         }
         public static  int Find(int number, int[] numbers)
         {
