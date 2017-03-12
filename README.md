@@ -17,6 +17,7 @@ See this [blog post](https://blogs.msdn.microsoft.com/dotnet/2016/08/24/whats-ne
 Enhancements:
 * Updated to use VS 2017 RTM
 * Updated reference  System.ValueTuple to use the RTM version
+
 ### 12-27-2016
 Enhancements:
 * Updated to use VS 2017 RC1
